@@ -1,0 +1,8 @@
+<div class="input-group w-100">
+    <input #userInput type="text" class="form-control" placeholder="Пошук" (keyup.enter)="doSearch(userInput.value)">
+    <div class="input-group-append">
+        <button (click)="doSearch(userInput.value)" class="btn btn-primary" type="submit">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+</div>
