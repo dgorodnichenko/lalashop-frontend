@@ -24,4 +24,8 @@ export class ProductListService {
   getProductsByName(name: string): Observable<Product[]> {
     return this.httpClient.get<Product[]>(`${PRODUCT_API}/search?keyword=${name}`);
   }
+
+  getProductById(id: number): Observable<Product> {
+    return this.httpClient.get<Product>(`${PRODUCT_API}/product/${id}`);
+  }
 }
