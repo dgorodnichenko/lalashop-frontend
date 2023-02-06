@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="card mb-3">
+        <div class="row">
+          <div class="col-md-5">
+            <img src="{{ product.imageUrl }}" class="card-img" onerror="this.onerror = null; this.src = 'assets/images/no_image_found.jpg'"/>
+          </div>
+          <div class="col-md-7 d-flex">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="card-text">{{ product.description }}</p>
+              <h5 class="card-title">
+                {{ product.price | currency: 'UAH': 'symbol-narrow'}}
+              </h5>
+              <button class="btn btn-info px-5">
+                <i class="fa fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
