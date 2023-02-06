@@ -1,0 +1,29 @@
+<nav class="navbar navbar-main navbar-expand-lg navbar-light border-bottom">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="main_nav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/products">Головна</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Про нас</a>
+            </li>
+            <li class="nav-item dropdown" *ngFor="let mainCategory of mainProductCategories">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                {{ mainCategory.name }}
+              </a>
+              <div class="dropdown-menu">
+                <div *ngFor="let subcategory of subProductCategories">
+                  <a class="dropdown-item" *ngIf="mainCategory.id === subcategory.mainProductCategory.id" routerLink="/category/{{ subcategory.id }}">
+                    {{ subcategory.name }}
+                  </a>
+                </div>
+              </div>
+            </li>
+        </ul>
+      </div>
+    </div> 
+</nav>
