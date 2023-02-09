@@ -16,7 +16,7 @@
                     <div class="price mt-auto mb-3 ml-3">
                         {{ product.price | currency: 'UAH': 'symbol-narrow'}}
                     </div>
-                    <button class="btn btn-info">
+                    <button (click)="addToCart(product)" class="btn btn-info">
                         <i class="fa fa-shopping-cart"></i>
                     </button>
                 </div>
