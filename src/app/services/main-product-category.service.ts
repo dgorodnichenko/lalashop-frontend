@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
@@ -11,7 +11,11 @@ const MAIN_CATEGORY_API = `${environment.baseUrl}`
 })
 export class MainProductCategoryService {
 
-  constructor(private httpClient: HttpClient) { }
+  private httpClient: HttpClient;
+
+  constructor(handler: HttpBackend) {
+    this.httpClient = new HttpClient(handler);
+  }
 
   getAllMainCategories(): Observable<MainProductCategory[]> {
     return this.httpClient.get<MainProductCategory[]>(`${MAIN_CATEGORY_API}/main_categories`);

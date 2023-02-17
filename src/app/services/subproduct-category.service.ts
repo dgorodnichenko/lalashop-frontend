@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
@@ -11,7 +11,11 @@ const SUBPRODUCT_CATEGORY_API = `${environment.baseUrl}`
 })
 export class SubproductCategoryService {
 
-  constructor(private httpClient: HttpClient) { }
+  private httpClient: HttpClient;
+
+  constructor(handler: HttpBackend) {
+    this.httpClient = new HttpClient(handler);
+  }
 
   getAllSubcategories(): Observable<SubproductCategory[]> {
     return this.httpClient.get<SubproductCategory[]>(`${SUBPRODUCT_CATEGORY_API}/subcategories`);

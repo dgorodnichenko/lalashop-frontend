@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
@@ -12,7 +12,12 @@ const CITIES_API = `${environment.baseUrl}/city`;
   providedIn: 'root'
 })
 export class FormService {
-  constructor(private httpClient: HttpClient) { }
+
+  private httpClient: HttpClient;
+
+  constructor(handler: HttpBackend) {
+    this.httpClient = new HttpClient(handler);
+  }
 
   getAllCountries(): Observable<Country[]> {
     return this.httpClient.get<Country[]>(COUNTRIES_API);

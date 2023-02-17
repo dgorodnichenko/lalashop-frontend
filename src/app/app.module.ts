@@ -15,6 +15,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { authInterceptorProvider } from './helpers/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { CheckoutFormComponent } from './components/checkout-form/checkout-form.
     FooterComponent,
     ProductDetailsComponent,
     CartDetailsComponent,
-    CheckoutFormComponent
+    CheckoutFormComponent,
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,7 @@ import { CheckoutFormComponent } from './components/checkout-form/checkout-form.
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [authInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

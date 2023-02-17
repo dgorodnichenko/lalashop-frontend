@@ -1,0 +1,17 @@
+<div class="container" *ngIf="isDataLoaded">
+    <div>
+        <div class="card-header card text-center">
+          <h4>Мій акаунт</h4>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Ім'я:</h5>
+          <p class="card-text">{{ currentUser.firstName }}</p>
+          <h5 class="card-title">Прізвище:</h5>
+          <p class="card-text">{{ currentUser.lastName }}</p>
+          <h5 class="card-title">Email</h5>
+          <p class="card-text">{{ currentUser.email }}</p>
+          <br><br>
+          <h5 class="card-title">Ваші замовлення</h5>
+        </div>
+    </div>
+</div>
