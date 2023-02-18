@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { authInterceptorProvider } from './helpers/auth-interceptor.service';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { RegistrationComponent } from './components/registration/registration.co
     CheckoutFormComponent,
     LoginComponent,
     ProfileComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,

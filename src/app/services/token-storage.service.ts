@@ -32,5 +32,6 @@ export class TokenStorageService {
   logOut() {
     window.sessionStorage.clear();
     this.router.navigate(['/products']);
+    window.location.reload();
   }
 }
