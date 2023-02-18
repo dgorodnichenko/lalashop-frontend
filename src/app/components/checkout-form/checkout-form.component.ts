@@ -3,6 +3,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { City } from 'src/app/common/city';
 import { Country } from 'src/app/common/country';
+import { Order } from 'src/app/common/order';
+import { OrderItem } from 'src/app/common/order-item';
+import { Purchase } from 'src/app/common/purchase';
 import { CartService } from 'src/app/services/cart.service';
 import { CheckoutService } from 'src/app/services/checkout.service';
 import { FormService } from 'src/app/services/form.service';
@@ -107,6 +110,54 @@ export class CheckoutFormComponent implements OnInit {
         this.totalPrice = data;
       }
     )
+  }
+
+  onSubmit() {
+    if(this.checkoutForm.invalid) {
+      this.checkoutForm.markAllAsTouched();
+      return;
+    }
+
+    let order = new Order();
+      order.totalPrice = this.totalPrice;
+      order.totalQuantity = this.totalQuantity;
+
+      const cartItems = this.cartService.cartItems;
+
+      let orderItems: OrderItem[] = cartItems.map(cartItem => new OrderItem(cartItem));
+
+      let purchase = new Purchase()
+
+      purchase.customer = this.checkoutForm.controls['customer'].value;
+      const country: Country = JSON.parse(JSON.stringify(purchase.customer.country));
+      const city: City = JSON.parse(JSON.stringify(purchase.customer.city));
+      purchase.customer.country = country.name;
+      purchase.customer.city = city.name;
+
+      purchase.order = order;
+      purchase.orderItems = orderItems;
+
+      this.checkoutService.saveOrder(purchase).subscribe(
+        {
+          next: response => {
+            alert(`Ваше замовлення отримано. Номер вашого замовлення: ${response.orderTrackingNumber}`);
+            this.resetOrder();
+          },
+          error: err => {
+            alert(`Сталася помилка при замолвленні`);
+          }
+        }
+      )
+  }
+
+  resetOrder() {
+    this.cartService.cartItems = [];
+    this.cartService.totalPrice.next(0);
+    this.cartService.totalQuantity.next(0);
+
+    this.checkoutForm.reset();
+
+    this.router.navigateByUrl("/products");
   }
 
   handleMonthsAndYears() {

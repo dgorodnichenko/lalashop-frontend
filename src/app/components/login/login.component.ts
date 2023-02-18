@@ -21,9 +21,9 @@ export class LoginComponent implements OnInit {
               private tokenStorageService: TokenStorageService,
               private router: Router,
               private formBuilder: FormBuilder) {
-  //             if(this.tokenStorageService.getUser()) {
-  //               this.router.navigate(['/profile']);
-  //             }
+              if(this.tokenStorageService.getUser()) {
+                this.router.navigate(['/profile']);
+              }
   }
 
   ngOnInit(): void {
@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
         this.tokenStorageService.saveUser(data);
 
         this.router.navigate(['/profile']);
+        window.location.reload();
       },
       error: () => {
         this.showError = true;

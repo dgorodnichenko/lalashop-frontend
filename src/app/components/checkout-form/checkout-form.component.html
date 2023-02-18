@@ -220,7 +220,7 @@
             <p>Сума: {{ totalPrice | currency: 'UAH':'symbol-narrow'}} </p>
             <br>
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary mb-3">Купити</button>
+            <button type="submit" class="btn btn-primary mb-3" (click)="onSubmit()">Купити</button>
         </div>
         <!-- /Order result-->
     </form>

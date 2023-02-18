@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="card text-black" style="border-radius: 25px;">
+      <div class="card-body p-md-5">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Реєстрація</p>
+            
+            <form class="mx-1 mx-md-4" [formGroup]="registrationForm">
+              <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                  <input type="text" id="firstName" class="form-control" formControlName="firstName"/>
+                  <label class="form-label" for="firstName">Ваше ім'я</label>
+                  <!-- Validation -->
+                  <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger mt-1">
+                    <div *ngIf="firstName.errors?.['required']">
+                        Поле обов'язкове для заповнення
+                    </div>
+                  </div>
+                  <!-- /Validation -->
+                </div>
+              </div>
+  
+              <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                  <div class="form-outline flex-fill mb-0">
+                    <input type="text" id="lastName" class="form-control" formControlName="lastName" />
+                    <label class="form-label" for="lastName">Ваше прізвище</label>
+                    <!-- Validation -->
+                    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger mt-1">
+                      <div *ngIf="lastName.errors?.['required']">
+                          Поле обов'язкове для заповнення
+                      </div>
+                    </div>
+                    <!-- /Validation -->
+                  </div>
+                </div>
+  
+              <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                  <input type="email" id="email" class="form-control" formControlName="email"/>
+                  <label class="form-label" for="email">Ваш email</label>
+                  <!-- Validation -->
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger mt-1">
+                      Невірний формат email
+                  </div>
+                  <!-- /Validation -->
+                </div>
+              </div>
+  
+              <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                  <input type="password" id="password" class="form-control" formControlName="password"/>
+                  <label class="form-label" for="password">Пароль</label>
+                </div>
+              </div>
+  
+              <div class="d-flex flex-row align-items-center mb-4">
+                <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                <div class="form-outline flex-fill mb-0">
+                  <input type="password" id="confirm" class="form-control" formControlName="confirmPassword"/>
+                  <label class="form-label" for="confirm">Підтвердіть пароль</label>
+                  <!-- Validation -->
+                  <div *ngIf="password.value !== confirmPassword.value && (confirmPassword.dirty || confirmPassword.touched)" class="alert alert-danger mt-1">
+                       Паролі не співпадають
+                  </div>
+                  <!-- /Validation -->
+                </div>
+              </div>
+              <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                <button type="submit" (click)="submit()" class="btn btn-primary btn-lg" [disabled]="registrationForm.invalid">Зареєструватися</button>
+              </div>
+              <!-- Validation -->
+              <div *ngIf="error" class="alert alert-danger mt-1">
+                Під час реєстрації щось пішло не так. Будь ласка, спробуйте знову.
+              </div>
+              <!-- /Validation -->
+            </form>
+          </div>
+  
+          <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+            <img src="assets/images/register.webp"
+              class="img-fluid" alt="Registration image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
