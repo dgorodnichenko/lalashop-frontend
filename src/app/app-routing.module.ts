@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
 import { LoginComponent } from './components/login/login.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegistrationComponent},
+  {path: 'about', component: AboutUsComponent},
   {path: 'product/:id', component: ProductDetailsComponent},
   {path: 'search/:keyword', component: ProductListComponent},
   {path: 'category/:id', component: ProductListComponent},

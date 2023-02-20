@@ -13,7 +13,7 @@
             <td> {{ order.orderTrackingNumber }} </td>
             <td> {{ order.totalPrice | currency: 'UAH': 'symbol-narrow'}} </td>
             <td> {{ order.totalQuantity}} </td>
-            <td> {{ order.dateCreated }}</td>
+            <td> {{ order.dateCreated | date: "dd/MM/yyyy" }}</td>
             <td> {{ order.status }}</td>
         </tr>
     </tbody>

@@ -160,22 +160,6 @@
                 <div class="col-md-2"><label>Термін дії картки</label></div>
                 <div class="col-md-2">
                     <div class="mb-3">
-                        <select formControlName="expirationMonth" class="form-control">
-                            <option value="" disabled selected>Місяць</option>
-                            <option *ngFor="let month of creditCardMonths">{{ month }}</option>
-                        </select>
-                        <!-- Validation-->
-                        <div *ngIf="expirationMonth.invalid && (expirationMonth.dirty || expirationMonth.touched)" class="alert alert-danger mt-1">
-                            <div *ngIf="expirationMonth.errors?.['required']">
-                                Поле обов'язкове для заповнення
-                            </div>
-                        </div>
-                        <!-- /Validation-->      
-                    </div>           
-                </div>
-
-                <div class="col-md-2">
-                    <div class="mb-3">
                         <select formControlName="expirationYear" class="form-control" (change)="handleMonthsAndYears()">
                             <option value="" disabled selected>Рік</option>
                             <option *ngFor="let year of creditCardYears">{{ year }}</option>
@@ -188,6 +172,22 @@
                         </div>
                         <!-- /Validation-->      
                         </div>           
+                </div>
+                
+                <div class="col-md-2">
+                    <div class="mb-3">
+                        <select formControlName="expirationMonth" class="form-control">
+                            <option value="" disabled selected>Місяць</option>
+                            <option *ngFor="let month of creditCardMonths">{{ month }}</option>
+                        </select>
+                        <!-- Validation-->
+                        <div *ngIf="expirationMonth.invalid && (expirationMonth.dirty || expirationMonth.touched)" class="alert alert-danger mt-1">
+                            <div *ngIf="expirationMonth.errors?.['required']">
+                                Поле обов'язкове для заповнення
+                            </div>
+                        </div>
+                        <!-- /Validation-->      
+                    </div>           
                 </div>
             </div>
 
