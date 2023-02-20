@@ -21,6 +21,7 @@ import { authInterceptorProvider } from './helpers/auth-interceptor.service';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { RulesComponent } from './components/rules/rules.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     ProfileComponent,
     RegistrationComponent,
     OrderHistoryComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    RulesComponent
   ],
   imports: [
     BrowserModule,
