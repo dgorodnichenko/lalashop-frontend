@@ -22,6 +22,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { RulesComponent } from './components/rules/rules.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { RulesComponent } from './components/rules/rules.component';
     RegistrationComponent,
     OrderHistoryComponent,
     AboutUsComponent,
-    RulesComponent
+    RulesComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
