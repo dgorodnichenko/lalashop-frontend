@@ -1,6 +1,6 @@
 # Lalashop
 
-This example of internet shop was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
+This example of the internet shop was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
 The web is deployed to Heroku. To see the full web go to https://lalashopper.herokuapp.com/products.
 
 ## How it works
