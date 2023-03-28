@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://lalashopping.herokuapp.com/api'
+  baseUrl: 'https://lalashop1-dgorodnichenko9.b4a.run/api'
 };
